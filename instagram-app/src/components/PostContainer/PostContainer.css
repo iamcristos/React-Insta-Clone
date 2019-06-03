@@ -1,14 +1,15 @@
 .PostContainer{
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem;
-    justify-content: center;
-    align-items: center
+    border: 1px solid lightgray;
+    width: 50%;
+    margin-left: 20%;
+    margin-top: 2rem
 }
 
 .posts {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .user {

@@ -1,11 +1,14 @@
 import React from 'react'
-
+import './CommentSection.css'
 const CommentSection = ({comments})=>{
+    console.log(comments)
+    // const comment = []
+    
     return (
         <div>
         {comments.map(comment=>(
-            <div>
-                <h2>{comment.username}</h2>
+            <div className='CommentSection'>
+                <h4>{comment.username}</h4>
                 <p>{comment.text}</p>
             </div>
         ))}

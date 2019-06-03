@@ -1,0 +1,9 @@
+.CommentSection{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.CommentSection h4 {
+    padding: 0 .3rem
+}
