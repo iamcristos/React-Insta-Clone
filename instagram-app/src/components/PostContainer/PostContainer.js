@@ -45,13 +45,13 @@ const PostContainer = ({data})=>{
                             const addPost = comment.concat(post)
                             addComment(addPost)
                         }
-                    }}>
-                        <InputGroup style={{display:'flex', width:'500px'}}>
-                            <Input onChange={(e)=>(
+                    }} style={{width: '100%', paddingTop: '.3rem'}}>
+                        <InputGroup style={{display:'flex', width: '670px', alignItems:'center'}}>
+                            <Input placeholder='add comment...' onChange={(e)=>(
                             (e.target.value.trim() !== '') ?
                                 sendMessage(e.target.value) : null
-                            )} />
-                            <InputGroupAddon addonType="prepend"><Button>Post</Button></InputGroupAddon>
+                            )} style={{border: 'none', width: '520px', height:'40px'}}/>
+                            <InputGroupAddon addonType="prepend"><Button style={{border: 'none'}}>Post</Button></InputGroupAddon>
                         </InputGroup>
                     </form>
                 </div>
