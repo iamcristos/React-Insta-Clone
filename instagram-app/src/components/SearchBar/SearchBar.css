@@ -1,0 +1,40 @@
+.SearchBar{
+    display: flex;
+}
+
+.SearchBar nav{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin: 1rem;
+    padding: 0 1rem;
+}
+
+.search-left {
+    display: flex;
+    align-items: center;
+    font-weight: bolder
+}
+
+.search-left span{
+    display: inline-block;
+    height: 30px;
+    width: 5px;
+    padding: 0 1rem;
+    border-right: 1px solid black
+}
+
+li{
+    list-style: none;
+    padding: 0 1rem;
+}
+
+.search-right{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-right i{
+    padding: 0 1rem
+}
