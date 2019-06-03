@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import uuid from 'uuid';
 import './PostContainer.css'
 import {Input, InputGroup, InputGroupAddon, Button} from 'reactstrap'
 import CommentSection from '../CommentSection/CommentSection'
@@ -9,10 +10,8 @@ const PostContainer = ({data})=>{
         width: '100%'
     }
     const time = ()=>{
-        console.log(data.timestamp)
         const timestamp = data.timestamp.split('');
         const timestamps= timestamp.filter(date=>!(date.includes('t')||date.includes('h')));
-        console.log(timestamps.join(''))
         const date = Date.parse(timestamps.join(''))
        return(moment(date).endOf('day').fromNow())
     }
@@ -41,7 +40,7 @@ const PostContainer = ({data})=>{
                         e.preventDefault()
                         const text = {message}
                         if(text.message.trim() !== '') {
-                            const post = {username:'Cristos', text: text.message}
+                            const post = {id:uuid(), username:'Cristos', text: text.message}
                             const addPost = comment.concat(post)
                             addComment(addPost)
                         }
