@@ -9,12 +9,11 @@ class App extends Component {
   state = {
     data : [],
     message: '',
-    like: false,
     searchUser: ''
   }
 
   async componentDidMount() {
-    // window.localStorage.removeItem('data')
+    dummyData.map(data=>data.userLike=false)
    if( window.localStorage.getItem('data') === null) {
      await window.localStorage.setItem('data', JSON.stringify(dummyData))
    }
@@ -51,12 +50,12 @@ class App extends Component {
   onLikeHandler = (e,postId)=>{
       const comments = this.state.data.find(comment=> comment.id === postId)
       let likes;
-      if (this.state.likes) {
+      if (comments.userLike) {
         likes = comments.likes - 1
-        this.setState({likes:false})
+        comments.userLike = false
       } else {
         likes = comments.likes + 1
-        this.setState({likes:true})
+        comments.userLike = true
       }
       comments.likes = likes
       this.updateComment(postId, comments)

@@ -15,7 +15,7 @@ const PostContainer = ({data,like, postId})=>{
     return (
         <div className='PostContainer'>
            <Posts data={data}/>
-            <PostReaction like={like} postId={postId} />
+            <PostReaction like={like} postId={postId} showLike={data.userLike}/>
             <div style={{paddingLeft:'.5rem'}}>
                 <p>{`${data.likes} likes`}</p>
                 <CommentSection comments={data.comments}/>
