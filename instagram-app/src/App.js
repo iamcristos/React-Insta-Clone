@@ -14,11 +14,22 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    window.localStorage.removeItem('data')
+    // window.localStorage.removeItem('data')
    if( window.localStorage.getItem('data') === null) {
      await window.localStorage.setItem('data', JSON.stringify(dummyData))
    }
    await this.setState({data:JSON.parse(window.localStorage.getItem('data'))})
+  }
+
+  updateComment( postId, postComment) {
+    const updateComment = [...this.state.data].map(comments=>{
+      if(comments.id === postId) {
+          comments = postComment
+       }
+       return comments
+    })
+    window.localStorage.setItem('data', JSON.stringify(updateComment))
+    this.setState({data:updateComment})
   }
 
   addNewComment = (e, postId)=>{
@@ -29,14 +40,7 @@ class App extends Component {
         const post = {id:uuid(), username:'Cristos', text}
         const updatedPost = postComment.comments.concat(post)
         postComment.comments = updatedPost
-       const updateComment = [...this.state.data].map(comments=>{
-         if(comments.id === postId) {
-             comments = postComment
-          }
-          return comments
-       })
-       window.localStorage.setItem('data', JSON.stringify(updateComment))
-       this.setState({data:updateComment})
+        this.updateComment(postId,postComment)
     }
   }
 
@@ -55,14 +59,7 @@ class App extends Component {
         this.setState({likes:true})
       }
       comments.likes = likes
-      const updateComment = [...this.state.data].map(comment=>{
-        if(comment.id === postId) {
-            comment = comments
-         }
-         return comment
-      })
-      window.localStorage.setItem('data', JSON.stringify(updateComment))
-      this.setState({data:updateComment})
+      this.updateComment(postId, comments)
   }
 
   searchHandler = (e)=>{

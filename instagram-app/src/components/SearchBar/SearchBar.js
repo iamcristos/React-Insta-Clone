@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './SearchBar.css'
 const SearchBar = ({search})=>{
     return (
@@ -20,6 +21,10 @@ const SearchBar = ({search})=>{
                 </nav>
         </div>
     )
+}
+
+SearchBar.propTypes = {
+    search: PropTypes.func
 }
 
 export default SearchBar;

@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import './PostContainer.css'
 import {Input, InputGroup, InputGroupAddon, Button} from 'reactstrap'
 
 const AddComments = (props)=>{
@@ -6,13 +8,16 @@ const AddComments = (props)=>{
     return (
         <div className='add-comment'>
                     <form onSubmit={(e) => handleSubmit(props.postId)(e)} style={{width: '100%', paddingTop: '.3rem'}}>
-                        <InputGroup style={{display:'flex', width: '670px', alignItems:'center'}}>
-                            <Input placeholder='add comment...' onChange={(e)=>props.onChange(e)} style={{border: 'none', width: '520px', height:'40px', outline:'none'}}/>
-                            <InputGroupAddon addonType="prepend"><Button style={{border: 'none', outline:'none'}}>Post</Button></InputGroupAddon>
+                        <InputGroup style={{display:'flex', width: '', alignItems:'center'}}>
+                            <Input placeholder='add comment...' onChange={(e)=>props.onChange(e)} style={{border: 'none', width: '95%', height:'40px', outline:'none', padding:'.2rem'}}/>
+                            <InputGroupAddon addonType="prepend"><Button style={{border: 'none', outline:'none', fontWeight: 'bolder'}}>...</Button></InputGroupAddon>
                         </InputGroup>
                     </form>
                 </div>
     )
 }
 
+AddComments.propTypes = {
+    onSubmit: PropTypes.func
+}
 export default AddComments;
