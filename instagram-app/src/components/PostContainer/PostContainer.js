@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import uuid from 'uuid';
 import './PostContainer.css'
-import {Input, InputGroup, InputGroupAddon, Button} from 'reactstrap'
 import CommentSection from '../CommentSection/CommentSection'
-const PostContainer = ({data})=>{
+const PostContainer = ({data,like, postId})=>{
     const imgStyle = {
         width: '100%'
     }
@@ -16,8 +14,7 @@ const PostContainer = ({data})=>{
        return(moment(date).endOf('day').fromNow())
     }
 
-    const [comment, addComment] = useState(data.comments)
-    const [message, sendMessage] = useState('')
+    const onLikeFunction = (postId)=>(e)=> like(e,postId)
     return (
         <div className='PostContainer'>
             <div className='posts'>
@@ -28,32 +25,13 @@ const PostContainer = ({data})=>{
                 <img src={data.imageUrl} alt='post' style={imgStyle}/>
             </div>
             <div style={{width:'45%', marginLeft: '.1rem', paddingLeft: '.3rem'}}>
-                <i className="far fa-heart fa-2x" style={{padding: '.5rem', fontSize:'bolder'}}/>
+                <i className="far fa-heart fa-2x" style={{padding: '.5rem', fontSize:'bolder'}} onClick={(e)=>{onLikeFunction(postId)(e)}}/>
                 <i className="far fa-comment fa-2x" style={{padding: '.5rem', fontSize:'bolder'}}/>
             </div>
             <div style={{paddingLeft:'.5rem'}}>
                 <p>{`${data.likes} likes`}</p>
-                <CommentSection comments={comment}/>
+                <CommentSection comments={data.comments}/>
                 <p>{time()}</p>
-                <div className='add-comment'>
-                    <form onSubmit={(e)=>{
-                        e.preventDefault()
-                        const text = {message}
-                        if(text.message.trim() !== '') {
-                            const post = {id:uuid(), username:'Cristos', text: text.message}
-                            const addPost = comment.concat(post)
-                            addComment(addPost)
-                        }
-                    }} style={{width: '100%', paddingTop: '.3rem'}}>
-                        <InputGroup style={{display:'flex', width: '670px', alignItems:'center'}}>
-                            <Input placeholder='add comment...' onChange={(e)=>(
-                            (e.target.value.trim() !== '') ?
-                                sendMessage(e.target.value) : null
-                            )} style={{border: 'none', width: '520px', height:'40px'}}/>
-                            <InputGroupAddon addonType="prepend"><Button style={{border: 'none'}}>Post</Button></InputGroupAddon>
-                        </InputGroup>
-                    </form>
-                </div>
             </div>
         </div>
     )
