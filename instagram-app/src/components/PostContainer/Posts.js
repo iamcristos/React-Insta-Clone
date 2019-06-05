@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './PostContainer.css';
  const Posts = ({data})=>{
     const imgStyle = {
@@ -14,5 +15,12 @@ import './PostContainer.css';
     </div>
     )
 }
+Posts.propTypes = {
+    data: PropTypes.shape({
+        thumbnailUrl: PropTypes.string,
+        username: PropTypes.string,
+        imageUrl: PropTypes.string
+    }).isRequired
+} 
 
 export default Posts

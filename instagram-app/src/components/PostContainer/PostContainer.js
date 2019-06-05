@@ -18,7 +18,7 @@ const PostContainer = ({data,like, postId, deleteComment})=>{
             <PostReaction like={like} postId={postId} showLike={data.userLike}/>
             <div style={{paddingLeft:'.5rem'}}>
                 <p>{`${data.likes} likes`}</p>
-                <CommentSection comments={data.comments} deleteComment={deleteComment}/>
+                <CommentSection comments={data.comments} deleteComment={deleteComment} postId={postId}/>
                 <p>{time()}</p>
             </div>
         </div>

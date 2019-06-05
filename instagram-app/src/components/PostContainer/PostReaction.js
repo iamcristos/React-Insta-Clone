@@ -22,6 +22,7 @@ const PostReaction = ({like,postId,showLike})=>{
 
 PostReaction.propTypes = {
     like: PropTypes.func,
-    postId: PropTypes.number
+    postId: PropTypes.number,
+    showLike: PropTypes.bool
 }
 export default PostReaction;

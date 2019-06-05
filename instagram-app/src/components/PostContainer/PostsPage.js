@@ -71,13 +71,26 @@ class PostsPage extends Component {
       }
   }
 
+  deleteCommentHandler = (e,commentId,postId)=>{
+    const data = this.state.data
+    const comments = data.map(post=> {
+
+      if (post.id === postId) {
+        post.comments = post.comments.filter(comment=> comment.id !== commentId)
+      }
+      return post
+    })
+    window.localStorage.setItem('data', JSON.stringify(comments))
+    this.setState({data:comments})
+  }
+
   render() {
     return (
       <div className="App">
         <SearchBar search={this.searchHandler}/>
         {this.state.data.length ?this.state.data.map(data=>(
           <div  key={data.id} >
-            <PostContainer data={data} like={this.onLikeHandler} postId={data.id}/>
+            <PostContainer data={data} like={this.onLikeHandler} postId={data.id} deleteComment={this.deleteCommentHandler}/>
             <AddComment onSubmit={this.addNewComment}
               postId={data.id}
               onChange={this.onChangeHandler}/>
