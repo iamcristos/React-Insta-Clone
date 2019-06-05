@@ -5,7 +5,7 @@ import './PostContainer.css';
 import Posts from './Posts';
 import PostReaction from './PostReaction';
 import CommentSection from '../CommentSection/CommentSection'
-const PostContainer = ({data,like, postId})=>{
+const PostContainer = ({data,like, postId, deleteComment})=>{
     const time = ()=>{
         const timestamp = data.timestamp.split('');
         const timestamps= timestamp.filter(date=>!(date.includes('t')||date.includes('h')));
@@ -18,7 +18,7 @@ const PostContainer = ({data,like, postId})=>{
             <PostReaction like={like} postId={postId} showLike={data.userLike}/>
             <div style={{paddingLeft:'.5rem'}}>
                 <p>{`${data.likes} likes`}</p>
-                <CommentSection comments={data.comments}/>
+                <CommentSection comments={data.comments} deleteComment={deleteComment}/>
                 <p>{time()}</p>
             </div>
         </div>
@@ -32,7 +32,8 @@ PostContainer.propTypes = {
       likes: PropTypes.number,
       timestamp: PropTypes.string,
       comments: PropTypes.array
-    }).isRequired
+    }).isRequired,
+    deleteComment: PropTypes.func
   }
 
 export default PostContainer
