@@ -11,7 +11,7 @@ const SearchBar = ({search})=>{
                         <li>Instagram</li>
                     </div>
                     <div>
-                        <input type='text' placeholder='search' onChange={search}/>
+                        <input type='text' placeholder='search' onChange={search} style={{paddingLeft:'.3rem'}}/>
                     </div>
                     <div className='search-right'>
                         <i className="far fa-compass"/>
