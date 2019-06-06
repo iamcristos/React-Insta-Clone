@@ -20,6 +20,11 @@ const PostContainer = ({data,like, postId, deleteComment})=>{
             width: 100%;
             margin-left: 15%
         }
+
+        @media (max-width: 500px) {
+            margin-left: .3rem;
+            width: 350px;
+        }
     `
     const time = ()=>{
         const timestamp = data.timestamp.split('');

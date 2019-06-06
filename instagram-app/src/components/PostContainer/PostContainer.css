@@ -1,19 +1,8 @@
-
-.posts {
-    display: flex;
-    flex-direction: column;
+.img{
+    width: 100%
 }
-
-.user {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1rem 2rem;
+@media (max-width: 570px) {
+    .img{
+        width: 340px
+    }
 }
-
-.user img{
-    height: 40px;
-    border-radius: 50%;
-    padding: 0 1rem;
-}
-
