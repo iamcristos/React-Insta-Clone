@@ -8,24 +8,21 @@ const SearchBar = ({search})=>{
         display: flex;
         border-bottom: 1px solid lightgray;
 
-        @media (max-width: 380px) {
-            width: 300px;
-            color: red;
-            border: 1px solid yellow
+        @media (max-width: 500px) {
+            width: 100%;
         }
     `
     const LogoHeader = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     align-items: center;
     margin: 1rem;
     padding: 0 1rem;
     
-    @media (max-width: 380px) {
-            width: 200px;
-            color: red;
-            border: 1px solid purple
+    @media (max-width: 500px) {
+            width:100%;
+            margin: 1rem .5rem;
         }`
     return (
         <Header>
