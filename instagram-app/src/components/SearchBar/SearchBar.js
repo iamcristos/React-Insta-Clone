@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './SearchBar.css'
-const SearchBar = ()=>{
+const SearchBar = ({search})=>{
     return (
         <div className='SearchBar'>
                 <nav>
@@ -10,7 +11,7 @@ const SearchBar = ()=>{
                         <li>Instagram</li>
                     </div>
                     <div>
-                        <input type='text' placeholder='search'/>
+                        <input type='text' placeholder='search' onChange={search} style={{paddingLeft:'.3rem'}}/>
                     </div>
                     <div className='search-right'>
                         <i className="far fa-compass"/>
@@ -20,6 +21,10 @@ const SearchBar = ()=>{
                 </nav>
         </div>
     )
+}
+
+SearchBar.propTypes = {
+    search: PropTypes.func
 }
 
 export default SearchBar;

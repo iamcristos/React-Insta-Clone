@@ -5,5 +5,10 @@
 }
 
 .CommentSection h4 {
-    padding: 0 .3rem
+    padding: 0 .3rem;
+    margin: 0
+}
+
+.CommentSection p{
+    margin: 0.4rem
 }
