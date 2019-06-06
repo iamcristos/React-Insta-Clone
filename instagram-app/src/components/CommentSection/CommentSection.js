@@ -23,9 +23,6 @@ const CommentSection = ({comments, deleteComment, postId})=>{
             padding-top:'0';
             color: white
         }
-        @media (max-width: 570px){
-            
-        }
     `
     const deleteCommentFunction = (postId)=>(commentId)=>(e)=> deleteComment(e,commentId,postId)
     return (
