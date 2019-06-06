@@ -1,11 +1,3 @@
-.PostContainer{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    width: 50%;
-    margin-left: 20%;
-    margin-top: 2rem
-}
 
 .posts {
     display: flex;
@@ -25,11 +17,3 @@
     padding: 0 1rem;
 }
 
-.add-comment {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-    margin-left: 20%;
-    border: 1px solid lightgray;
-}

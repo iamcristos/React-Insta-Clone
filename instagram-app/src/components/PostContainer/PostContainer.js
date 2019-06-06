@@ -3,9 +3,24 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import './PostContainer.css';
 import Posts from './Posts';
+import styled from 'styled-components'
 import PostReaction from './PostReaction';
 import CommentSection from '../CommentSection/CommentSection'
 const PostContainer = ({data,like, postId, deleteComment})=>{
+
+    const PostContainer = styled.div`
+        display: flex;
+        flex-direction: column;
+        border: 1px solid lightgray;
+        width: 50%;
+        margin-left: 20%;
+        margin-top: 2rem;
+
+        @media(max-width: 700px) {
+            width: 100%;
+            margin-left: 15%
+        }
+    `
     const time = ()=>{
         const timestamp = data.timestamp.split('');
         const timestamps= timestamp.filter(date=>!(date.includes('t')||date.includes('h')));
@@ -13,7 +28,7 @@ const PostContainer = ({data,like, postId, deleteComment})=>{
        return(moment(date).endOf('day').fromNow())
     }
     return (
-        <div className='PostContainer'>
+        <PostContainer>
            <Posts data={data}/>
             <PostReaction like={like} postId={postId} showLike={data.userLike}/>
             <div style={{paddingLeft:'.5rem'}}>
@@ -21,7 +36,7 @@ const PostContainer = ({data,like, postId, deleteComment})=>{
                 <CommentSection comments={data.comments} deleteComment={deleteComment} postId={postId}/>
                 <p>{time()}</p>
             </div>
-        </div>
+        </PostContainer>
     )
 }
 PostContainer.propTypes = {

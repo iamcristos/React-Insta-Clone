@@ -5,6 +5,7 @@ import dummyData from '../../dummy-data';
 import PostContainer from './PostContainer';
 import AddComment from './AddComment';
 import '../../App.css';
+import styled from 'styled-components'
 class PostsPage extends Component {
   state = {
     data : [],
@@ -27,7 +28,7 @@ class PostsPage extends Component {
        }
        return comments
     })
-    window.localStorage.setItem('data', JSON.stringify(updateComment))
+    localStorage.setItem('data', JSON.stringify(updateComment))
     this.setState({data:updateComment})
   }
 
@@ -84,17 +85,25 @@ class PostsPage extends Component {
     this.setState({data:comments})
   }
 
+  
   render() {
+    const PostDiv = styled.div`
+    @media(max-width:700px){
+      width: 100%;
+      display: flex;
+      flex-direction: column
+    }
+  `
     return (
       <div className="App">
         <SearchBar search={this.searchHandler}/>
         {this.state.data.length ?this.state.data.map(data=>(
-          <div  key={data.id} >
+          <PostDiv  key={data.id} >
             <PostContainer data={data} like={this.onLikeHandler} postId={data.id} deleteComment={this.deleteCommentHandler}/>
             <AddComment onSubmit={this.addNewComment}
               postId={data.id}
               onChange={this.onChangeHandler}/>
-          </div>
+          </PostDiv>
         )): null}
       </div>
     );
