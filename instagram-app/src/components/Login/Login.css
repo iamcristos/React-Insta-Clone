@@ -25,3 +25,10 @@
     height: 40px;
     margin: .5rem
 }
+
+@media(max-width:570px) {
+    .Login {
+        width: 97%;
+        margin: 1rem 0;
+    }
+}

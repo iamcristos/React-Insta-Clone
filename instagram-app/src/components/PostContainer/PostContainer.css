@@ -1,35 +1,8 @@
-.PostContainer{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    width: 50%;
-    margin-left: 20%;
-    margin-top: 2rem
+.img{
+    width: 100%
 }
-
-.posts {
-    display: flex;
-    flex-direction: column;
-}
-
-.user {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-.user img{
-    height: 40px;
-    border-radius: 50%;
-    padding: 0 1rem;
-}
-
-.add-comment {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-    margin-left: 20%;
-    border: 1px solid lightgray;
+@media (max-width: 570px) {
+    .img{
+        width: 340px
+    }
 }
